@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package proto;
+
+import "google/protobuf/empty.proto";
+
+option java_multiple_files = true;
+option java_package = "iochti.processRuleType";
+option java_outer_classname = "ProcessRuleTypeProto";
+
+service ProcessRuleTypeService {
+  rpc GetProcessRuleType(ProcessRuleTypeByIdRequest) returns (ProcessRuleType) {}
+  rpc CreateProcessRuleType(ProcessRuleType) returns (ProcessRuleType) {}
+  rpc UpdateProcessRuleType(ProcessRuleType) returns (ProcessRuleType) {}
+  rpc DeleteProcessRuleType(ProcessRuleTypeByIdRequest) returns (google.protobuf.Empty) {}
+}
+
+message ProcessRuleType {
+  string id = 1;
+  string name = 2;
+  string parameters = 3;
+}
+
+message ProcessRuleTypeByIdRequest {
+  string processGroupTypeId = 1;
+}
